@@ -35,7 +35,7 @@
                     <tr>
                         <td>{{$horario->id}}</td>
                         <td>{{$horario->horario}}</td>
-                        <td>{{$horario->pessoas_id}}</td>
+                        <td>{{$horario->pessoa_id}}</td>
                         <td>{{$horario->remedio_id}}</td>
                         <td>
                             <a href="" type="button"
