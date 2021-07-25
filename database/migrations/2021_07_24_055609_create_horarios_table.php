@@ -15,13 +15,14 @@ class CreateHorariosTable extends Migration
     {
         Schema::create('horarios', function (Blueprint $table) {
             $table->id();
-            // $table->unsignedBigInteger('pessoa_id');
-            // $table->unsignedBigInteger('remedio_id');
+            $table->unsignedBigInteger('pessoa_id');
             $table->string('horario');
+            $table->string('remedio');
+            $table->string('dosagem');
+            $table->float('valor');
             $table->timestamps();
 
-            // $table->foreign('pessoa_id')->references('id')->on('pessoas')->onDelete('CASCADE');
-            // $table->foreign('remedio_id')->references('id')->on('remedios')->onDelete('CASCADE');
+            $table->foreign('pessoa_id')->references('id')->on('pessoas')->onDelete('CASCADE');
         });
     }
 

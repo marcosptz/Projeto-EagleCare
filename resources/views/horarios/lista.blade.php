@@ -27,6 +27,7 @@
                         <th>Horário</th>
                         <th>Pessoa</th>
                         <th>Remédio</th>
+                        <th>Valor R$</th>
                         <th>Ações</th>
                     </tr>
                 </thead>
@@ -35,12 +36,13 @@
                     <tr>
                         <td>{{$horario->id}}</td>
                         <td>{{$horario->horario}}</td>
-                        <td>{{$horario->pessoa_id}}</td>
-                        <td>{{$horario->remedio_id}}</td>
+                        <td>{{$horario->pessoa->nome}}</td>
+                        <td>{{$horario->remedio}}</td>
+                        <td>{{$horario->valor}}</td>
                         <td>
-                            <a href="" type="button"
+                            <a href="{{ route('horario.edit', $horario->id) }}" type="button"
                                 class="btn btn-outline-secondary btn-sm">Editar</a>
-                            <a href="" type="button"
+                            <a href="{{ route('horario.destroy', $horario->id) }}" type="button"
                                 class="btn btn-outline-secondary btn-sm">Excluir</a>
                         </td>
                     </tr>

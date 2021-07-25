@@ -17,7 +17,7 @@
                     {{ __('You are logged in!') }}
                     <p>
                         @if(Auth::user()->nivel == 1)
-                        <a href="{{ route('register') }}" class="btn btn-primary my-2">Cadastrar usuário</a>
+                        <a href="{{ route('user.create') }}" class="btn btn-primary my-2">Cadastrar usuário</a>
                         @endif
                     <a href="#" class="btn btn-secondary my-2">Listar usuários</a>
                     </p>

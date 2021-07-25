@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Horarios;
 use App\Pessoas;
 use Illuminate\Http\Request;
 
@@ -14,10 +15,12 @@ class PessoasController extends Controller
      */
     public function index()
     {
-        $passoas = Pessoas::get();
-        
+        $pessoas = Pessoas::get();
+        $horarios = Horarios::get();
+
         return view('pessoas.lista', [
-            'pessoas' => $passoas
+            'pessoas' => $pessoas,
+            'horarios' => $horarios
         ]);
     }
 
@@ -64,9 +67,14 @@ class PessoasController extends Controller
      * @param  \App\Pessoas  $pessoas
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pessoas $pessoas)
+    public function edit(Pessoas $pessoas, Request $request)
     {
-        //
+        $id = $request->id;
+        $passoa = Pessoas::find($id);
+
+        return view('pessoas.editar', [
+            'pessoa' => $passoa
+        ]);
     }
 
     /**
@@ -76,9 +84,24 @@ class PessoasController extends Controller
      * @param  \App\Pessoas  $pessoas
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pessoas $pessoas)
+    public function update(Request $request, Pessoas $pessoas, $id)
     {
-        //
+        $nome = $request->nome;
+        $periodo = $request->periodo;
+        if(Pessoas::find($id)->update([
+            'nome' => $nome,
+            'periodo' => $periodo
+        ])) {
+            return redirect()->route('pessoas.index')->withInput()->withErrors(['Registro alterado com sucesso!']);
+        } else {
+            return redirect()->back()->withInput()->withErrors(['Erro ao alterar']);
+        }
+        // Pessoas::find($id)->update([
+        //     'nome' => $nome,
+        //     'periodo' => $periodo
+        // ]);
+
+        // return redirect()->back()->withInput()->withErrors(['Cadastro alterado com sucesso']);
     }
 
     /**
@@ -87,8 +110,11 @@ class PessoasController extends Controller
      * @param  \App\Pessoas  $pessoas
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pessoas $pessoas)
+    public function destroy(Pessoas $pessoas, $id)
     {
-        //
+        $delete = Pessoas::find($id);
+        $delete->delete();
+
+        return redirect()->back()->withInput()->withErrors(['Cadastro deletado com sucesso']);
     }
 }

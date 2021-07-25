@@ -15,13 +15,12 @@ class CreatePessoasTable extends Migration
     {
         Schema::create('pessoas', function (Blueprint $table) {
             $table->id();
-            // $table->unsignedBigInteger('remedio_id');
             // $table->unsignedBigInteger('horario_id');
             $table->string('nome');
+            $table->string('tipo');
             $table->string('periodo');
             $table->timestamps();
 
-            // $table->foreign('remedio_id')->references('id')->on('remedios')->onDelete('CASCADE');
             // $table->foreign('horario_id')->references('id')->on('horarios')->onDelete('CASCADE');
         });
     }

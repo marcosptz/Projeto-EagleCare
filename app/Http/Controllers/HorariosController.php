@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Horarios;
+use App\Pessoas;
 use Illuminate\Http\Request;
 
 class HorariosController extends Controller
@@ -15,9 +16,11 @@ class HorariosController extends Controller
     public function index()
     {
         $horarios = Horarios::get();
+        $pessoas = Pessoas::get();
 
         return view('horarios.lista', [
-            'horarios' => $horarios
+            'horarios' => $horarios,
+            'pessoas' => $pessoas
         ]);
     }
 
@@ -28,7 +31,10 @@ class HorariosController extends Controller
      */
     public function create()
     {
-        return view('horarios.cadastro');
+        $pessoas = Pessoas::get();
+        return view('horarios.cadastro', [
+            'pessoas' => $pessoas
+        ]);
     }
 
     /**
@@ -42,10 +48,13 @@ class HorariosController extends Controller
         $horario = new Horarios();
         $horario->horario = $request->horario;
         $horario->pessoa_id = $request->pessoa_id;
-        $horario->remedio_id = $request->remedio_id;
+        $horario->remedio = $request->remedio;
+        $horario->dosagem = $request->dosagem;
+        $horario->valor = (float) $request->valor;
 
         $horario->save();
         return redirect()->back()->withInput()->withErrors(['Cadastro realizado com sucesso']);
+        // dd($horario->valor);
     }
 
     /**
@@ -65,9 +74,16 @@ class HorariosController extends Controller
      * @param  \App\Horarios  $horarios
      * @return \Illuminate\Http\Response
      */
-    public function edit(Horarios $horarios)
+    public function edit(Horarios $horarios, $id)
     {
-        //
+        // $id = $request->id;
+        $horario = Horarios::find($id);
+        $pessoas = Pessoas::get();
+
+        return view('horarios.editar', [
+            'horario' => $horario,
+            'pessoas' => $pessoas
+        ]);
     }
 
     /**
@@ -77,9 +93,24 @@ class HorariosController extends Controller
      * @param  \App\Horarios  $horarios
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Horarios $horarios)
+    public function update(Request $request, Horarios $horarios, $id)
     {
-        //
+        $horario = $request->horario;
+        $pessoa_id = $request->pessoa_id;
+        $remedio = $request->remedio;
+        $dosagem = $request->dosagem;
+        $valor = (float) $request->valor;
+        if(Horarios::find($id)->update([
+            'horario' => $horario,
+            'pessoa_id' => $pessoa_id,
+            'remedio' => $remedio,
+            'dosagem' => $dosagem,
+            'valor' => $valor
+        ])) {
+            return redirect()->route('horario.index')->withInput()->withErrors(['Registro alterado com sucesso!']);
+        } else {
+            return redirect()->back()->withInput()->withErrors(['Erro ao aletrar!']);
+        }
     }
 
     /**
@@ -88,8 +119,11 @@ class HorariosController extends Controller
      * @param  \App\Horarios  $horarios
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Horarios $horarios)
+    public function destroy(Horarios $horarios, $id)
     {
-        //
+        $delete = Horarios::find($id);
+        $delete->delete();
+
+        return redirect()->back()->withInput()->withErrors(['Cadastro deletado com sucesso']);
     }
 }

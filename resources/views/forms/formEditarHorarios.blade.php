@@ -5,17 +5,30 @@
         <div class="form-group col-md-12">
                 @if($errors->all())
                     @foreach($errors->all() as $error)
-                        <div class="alert alert-success" role="alert">
+                        <div class="alert alert-danger" role="alert">
                             {{ $error }}
                         </div>
                     @endforeach
                 @endif
             </div>
 
-        <form class="form-horizontal" method="post" action="{{route('horario.store')}}">
+        <form class="form-horizontal" method="post" action="{{route('horario.update', $horario->id)}}">
             @csrf
+            @method('put')
 
-            <label class="control-label">Cadastro de Horários</label>
+            <label class="control-label">Editar de Horários</label>
+
+            {{-- formulario id --}}
+
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="nome" class="control-label">Id</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" disabled required id="id" name="id" placeholder="Id"
+                            value="{{ $horario->id }}">
+                    </div>
+                </div>
+            </div>
 
             {{-- formulario horario --}}
 
@@ -24,7 +37,7 @@
                     <label for="nome" class="control-label">Horário</label>
                     <div class="input-group">
                         <input type="text" class="form-control" required id="horario" name="horario" placeholder="Horário"
-                            value="">
+                            value="{{ $horario->horario }}">
                     </div>
                 </div>
             </div>
@@ -38,7 +51,7 @@
                         {{-- <input type="number" class="form-control" required id="pessoa_id" name="pessoa_id" placeholder="Periodo"
                             value=""> --}}
                         <select class="form-control" required name="pessoa_id" id="pessoa_id">
-                            <option value="1">Selecione a pessoa</option>
+                            <option value="{{ $horario->pessoa_id }}">{{ $horario->pessoa_id }}</option>
                             @foreach ($pessoas as $pessoa)
                                 <option value="{{ $pessoa->id }}">{{ $pessoa->nome }}</option>
                             @endforeach
@@ -54,7 +67,7 @@
                     <label for="nome" class="control-label">Remédio</label>
                     <div class="input-group">
                         <input type="text" class="form-control" required id="remedio" name="remedio" placeholder="Remédio"
-                            value="">
+                            value="{{ $horario->remedio }}">
                     </div>
                 </div>
             </div>
@@ -66,7 +79,7 @@
                     <label for="nome" class="control-label">Dosagem</label>
                     <div class="input-group">
                         <input type="text" class="form-control" required id="dosagem" name="dosagem" placeholder="Dosagem"
-                            value="">
+                            value="{{ $horario->dosagem }}">
                     </div>
                 </div>
             </div>
@@ -79,7 +92,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text">R$</span>
                     </div>
-                    <input type="text" class="form-control" required id="valor" name="valor" aria-label="Quantia" placeholder="Ex: 10.00">
+                    <input type="text" class="form-control" required id="valor" name="valor" aria-label="Quantia" value="{{ $horario->valor }}" placeholder="Ex: 10.00">
                     <div class="input-group-append">
                         <span class="input-group-text">.00</span>
                     </div>

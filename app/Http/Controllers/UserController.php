@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Remedios;
 use Illuminate\Http\Request;
 
-class RemediosController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,7 +23,7 @@ class RemediosController extends Controller
      */
     public function create()
     {
-        //
+        return view('auth.registro');
     }
 
     /**
@@ -41,10 +40,10 @@ class RemediosController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Remedios  $remedios
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Remedios $remedios)
+    public function show($id)
     {
         //
     }
@@ -52,10 +51,10 @@ class RemediosController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Remedios  $remedios
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Remedios $remedios)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +63,10 @@ class RemediosController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Remedios  $remedios
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Remedios $remedios)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +74,10 @@ class RemediosController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Remedios  $remedios
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Remedios $remedios)
+    public function destroy($id)
     {
         //
     }

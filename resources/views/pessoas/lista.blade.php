@@ -33,12 +33,12 @@
                     @foreach ($pessoas as $pessoa)
                     <tr>
                         <td>{{$pessoa->id}}</td>
-                        <td>{{$pessoa->name}}</td>
+                        <td>{{$pessoa->nome}}</td>
                         <td>{{$pessoa->periodo}}</td>
                         <td>
-                            <a href="" type="button"
+                            <a href="{{ route('pessoas.edit', $pessoa->id) }}" type="button"
                                 class="btn btn-outline-secondary btn-sm">Editar</a>
-                            <a href="" type="button"
+                            <a href="{{ route('pessoas.destroy', $pessoa->id) }}" type="button"
                                 class="btn btn-outline-secondary btn-sm">Excluir</a>
                         </td>
                     </tr>
