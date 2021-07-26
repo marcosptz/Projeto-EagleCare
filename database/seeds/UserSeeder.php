@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
                     'nivel'=> '1'
                 ],
                 [
-                    'name'=>'usuario',
+                    'name'=>'Usuario',
                     'email'=>'usuario@usuario',
                     'password'=>bcrypt('Usuario123'),
                     'nivel'=>'2'
