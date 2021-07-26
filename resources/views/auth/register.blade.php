@@ -43,7 +43,7 @@
                             <label for="nivel" class="col-md-4 col-form-label text-md-right">{{ __('Nível') }}</label>
 
                             <div class="col-md-6">
-                                <select id="nivel" type="text" class="form-control @error('nivel') is-invalid @enderror" name="name" value="{{ old('nivel') }}" required autocomplete="nivel" autofocus>
+                                <select id="nivel" type="text" class="form-control @error('nivel') is-invalid @enderror" name="nivel" value="{{ old('nivel') }}" required autocomplete="nivel" autofocus>
                                     <option value="">Escolha o Nível</option>
                                     <option value="1">Administrador</option>
                                     <option value="2">Usuário</option>

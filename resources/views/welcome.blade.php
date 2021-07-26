@@ -23,7 +23,7 @@
         <div class="row">
           <div class="col-md-4">
             <div class="card mb-4 shadow-sm">
-                <img class="card-img-top" src="{{ URL::to('/imagens/cadastro.png') }}" alt="">
+                <img class="card-img-top" src="{{ URL::to('/imagens/img8.png') }}" alt="">
                 <div class="card-body">
                     <h4 class="card-title">Pessoas</h4>
                     <p class="card-text"></p>
@@ -33,7 +33,7 @@
           </div>
           <div class="col-md-4">
               <div class="card mb-4 shadow-sm">
-                <img class="card-img-top" src="{{ URL::to('/imagens/pesquisa.png') }}" alt="">
+                <img class="card-img-top" src="{{ URL::to('/imagens/img3.png') }}" alt="">
                 <div class="card-body">
                     <h4 class="card-title">Horários</h4>
                     <p class="card-text"></p>
@@ -43,11 +43,11 @@
             </div>
             <div class="col-md-4">
               <div class="card mb-4 shadow-sm">
-                <img class="card-img-top" src="{{ URL::to('/imagens/pesquisa.png') }}" alt="">
+                <img class="card-img-top" src="{{ URL::to('/imagens/img1.png') }}" alt="">
                 <div class="card-body">
-                    <h4 class="card-title">Agenda</h4>
+                    <h4 class="card-title">Pesquisa</h4>
                     <p class="card-text"></p>
-                    <a href="" class="btn btn-outline-secondary  stretched-link">Visualizar</a>
+                    <a href="{{ route('horario.show') }}" class="btn btn-outline-secondary  stretched-link">Visualizar</a>
                 </div>
               </div>
             </div>

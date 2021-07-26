@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Horarios;
 use App\Pessoas;
 use Illuminate\Http\Request;
+use Symfony\Component\Console\Input\Input;
 
 class HorariosController extends Controller
 {
@@ -63,9 +64,41 @@ class HorariosController extends Controller
      * @param  \App\Horarios  $horarios
      * @return \Illuminate\Http\Response
      */
-    public function show(Horarios $horarios)
+    public function show(Horarios $horarios, Request $request)
     {
-        //
+        return view('horarios.consulta');
+    }
+
+    public function pesquisa(Request $request)
+    {
+        $campo = $request->campo;
+        $resultado = Horarios::orderBy($campo,'asc')->get();
+        if ($resultado) {
+            return view('horarios.pesquisa', [
+                'resultados' => $resultado,
+                'campo' => $campo
+
+            ]);
+        } else {
+            return redirect()->back()->withInput()->withErrors(['Não encontrado!']);
+        }
+        // dd($resultado);
+    }
+
+    public function consHorario(Request $request)
+    {
+        $query = $request->consulta;
+        $campo = $request->campo;
+        $resultado = Horarios::where($campo, '=', $query)->first();
+        if ($resultado) {
+            return view('horarios.resultado', [
+                'resultado' => $resultado,
+                'campo' => $campo
+            ]);
+        } else {
+            return redirect()->back()->withInput()->withErrors(['Não encontrado!']);
+        }
+        // dd($resultado);
     }
 
     /**

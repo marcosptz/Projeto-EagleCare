@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
+// Route::get('/teste', function () {
+//     return view('horarios.consulta');
 // });
 
 Auth::routes();
@@ -32,12 +32,16 @@ Route::get('/pessoas/destroy/{id}', 'PessoasController@destroy')->name('pessoas.
 Route::get('/horario/index', 'HorariosController@index')->name('horario.index')->middleware('auth');
 Route::get('/horario/create', 'HorariosController@create')->name('horario.create')->middleware('auth');
 Route::post('/horario/store', 'HorariosController@store')->name('horario.store')->middleware('auth');
+Route::get('/horario/show/', 'HorariosController@show')->name('horario.show')->middleware('auth');
+Route::post('/horario/consulta/', 'HorariosController@consHorario')->name('horario.consulta')->middleware('auth');
+Route::post('/horario/pesquisa/', 'HorariosController@pesquisa')->name('horario.pesquisa')->middleware('auth');
 Route::get('/horario/edit/{id}', 'HorariosController@edit')->name('horario.edit')->middleware('auth');
 Route::put('/horario/update/{id}', 'HorariosController@update')->name('horario.update')->middleware('auth');
 Route::get('/horario/destroy/{id}', 'HorariosController@destroy')->name('horario.destroy')->middleware('auth');
 
-// Route::get('/remedio/index', 'RemediosController@index')->name('remedio.index')->middleware('auth');
-// Route::get('/remedio/create', 'RemediosController@create')->name('remedio.create')->middleware('auth');
-// Route::post('/remedio/store', 'RemediosController@store')->name('remedio.store')->middleware('auth');
-
-Route::get('/user/create', 'UserController@store')->name('user.create')->middleware('auth');
+Route::get('/user/index', 'UserController@index')->name('user.index')->middleware('auth');
+Route::get('/user/create', 'UserController@create')->name('user.create')->middleware('auth');
+Route::post('/user/store', 'UserController@store')->name('user.store')->middleware('auth');
+Route::get('/user/edit/{id}', 'UserController@edit')->name('user.edit')->middleware('auth');
+Route::put('/user/update/{id}', 'UserController@update')->name('user.update')->middleware('auth');
+Route::get('/user/destroy/{id}', 'UserController@destroy')->name('user.destroy')->middleware('auth');

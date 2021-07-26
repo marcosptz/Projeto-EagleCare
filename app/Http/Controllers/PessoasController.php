@@ -96,12 +96,6 @@ class PessoasController extends Controller
         } else {
             return redirect()->back()->withInput()->withErrors(['Erro ao alterar']);
         }
-        // Pessoas::find($id)->update([
-        //     'nome' => $nome,
-        //     'periodo' => $periodo
-        // ]);
-
-        // return redirect()->back()->withInput()->withErrors(['Cadastro alterado com sucesso']);
     }
 
     /**

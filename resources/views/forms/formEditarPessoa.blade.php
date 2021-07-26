@@ -55,7 +55,7 @@
                             <option value="7 Dias">7 Dias</option>
                             <option value="10 Dias">10 Dias</option>
                             <option value="12 Dias">12 Dias</option>
-                            <option value="15 Dias">15 Dias</option>
+                            <option value="15 Dias">14 Dias</option>
                             <option value="20 Dias">20 Dias</option>
                             <option value="25 Dias">25 Dias</option>
                             <option value="30 Dias">30 Dias</option>

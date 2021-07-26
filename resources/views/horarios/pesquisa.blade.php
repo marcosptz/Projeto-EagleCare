@@ -5,7 +5,7 @@
 <div class="card" style="margin-top: 80px">
     <div class="container col-md-12">
         <div class="card-header">
-            <h4 class="col-12 modal-title text-center">Lista de Horarios</h5>
+            <h4 class="col-12 modal-title text-center">Resultado</h5>
         </div>
         <h6 class="col-12 modal-title text-center"></h6>
         <div class="container col-md-12">
@@ -24,28 +24,24 @@
                 <table class="table table-striped nowrap" style="width:100%" id="exemplo">
                     <thead align="center">
                         <tr>
-                            <th>Nº do Horário</th>
-                            <th>Horário</th>
+                            <th>Nome</th>
+                            <th>{{ $campo }}</th>
+                            {{-- <th>Horário</th>
                             <th>Pessoa</th>
                             <th>Remédio</th>
-                            <th>Valor R$</th>
-                            <th>Ações</th>
+                            <th>Valor R$</th> --}}
+
                         </tr>
                     </thead>
                     <tbody align="center">
-                        @foreach ($horarios as $horario)
+                        @foreach ($resultados as $resultado)
                         <tr>
-                            <td>{{$horario->id}}</td>
-                            <td>{{$horario->horario}}</td>
+                            <td>{{ $resultado->pessoa->nome }}</td>
+                            <td>{{ $resultado->$campo }}</td>
+                            {{-- <td>{{$horario->horario}}</td>
                             <td>{{$horario->pessoa->nome}}</td>
                             <td>{{$horario->remedio}}</td>
-                            <td>{{$horario->valor}}</td>
-                            <td>
-                                <a href="{{ route('horario.edit', $horario->id) }}" type="button"
-                                    class="btn btn-outline-secondary btn-sm">Editar</a>
-                                <a href="{{ route('horario.destroy', $horario->id) }}" type="button"
-                                    class="btn btn-outline-secondary btn-sm">Excluir</a>
-                            </td>
+                            <td>{{$horario->valor}}</td> --}}
                         </tr>
                         @endforeach
                     </tbody>

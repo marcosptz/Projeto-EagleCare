@@ -8,6 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'EagleCare') }}</title>
+    {{-- <img class="card-img-top" src="{{ URL::to('/imagens/pesquisa.png') }}" alt=""> --}}
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>

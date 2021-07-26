@@ -24,26 +24,24 @@
                 <table class="table table-striped nowrap" style="width:100%" id="exemplo">
                     <thead align="center">
                         <tr>
-                            <th>Nº do Horário</th>
-                            <th>Horário</th>
-                            <th>Pessoa</th>
-                            <th>Remédio</th>
-                            <th>Valor R$</th>
+                            <th>Id</th>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>Nível</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
                     <tbody align="center">
-                        @foreach ($horarios as $horario)
+                        @foreach ($users as $user)
                         <tr>
-                            <td>{{$horario->id}}</td>
-                            <td>{{$horario->horario}}</td>
-                            <td>{{$horario->pessoa->nome}}</td>
-                            <td>{{$horario->remedio}}</td>
-                            <td>{{$horario->valor}}</td>
+                            <td>{{$user->id}}</td>
+                            <td>{{$user->name}}</td>
+                            <td>{{$user->email}}</td>
+                            <td>{{$user->nivel}}</td>
                             <td>
-                                <a href="{{ route('horario.edit', $horario->id) }}" type="button"
+                                <a href="{{ route('user.edit', $user->id) }}" type="button"
                                     class="btn btn-outline-secondary btn-sm">Editar</a>
-                                <a href="{{ route('horario.destroy', $horario->id) }}" type="button"
+                                <a href="{{ route('user.destroy', $user->id) }}" type="button"
                                     class="btn btn-outline-secondary btn-sm">Excluir</a>
                             </td>
                         </tr>
