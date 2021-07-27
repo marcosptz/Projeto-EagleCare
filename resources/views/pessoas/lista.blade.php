@@ -25,7 +25,7 @@
                     <tr>
                         <th>Nº da Pessoa</th>
                         <th>Nome</th>
-                        <th>Periodo</th>
+                        <th>Período</th>
                         <th>Ações</th>
                     </tr>
                 </thead>

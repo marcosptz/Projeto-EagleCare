@@ -28,6 +28,8 @@
                             <th>Horário</th>
                             <th>Pessoa</th>
                             <th>Remédio</th>
+                            <th>Período</th>
+                            <th>Dosagem</th>
                             <th>Valor R$</th>
                             <th>Ações</th>
                         </tr>
@@ -39,6 +41,8 @@
                             <td>{{$horario->horario}}</td>
                             <td>{{$horario->pessoa->nome}}</td>
                             <td>{{$horario->remedio}}</td>
+                            <td>{{$horario->pessoa->periodo}}</td>
+                            <td>{{$horario->dosagem}}</td>
                             <td>{{$horario->valor}}</td>
                             <td>
                                 <a href="{{ route('horario.edit', $horario->id) }}" type="button"

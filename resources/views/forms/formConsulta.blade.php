@@ -18,18 +18,39 @@
             {{-- formulario consulta --}}
 
             <div class="form-row">
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-12">
                     <label for="nome" class="control-label">Consulta</label>
                     <div class="input-group">
-                        <select class="form-control col-md-5" required name="campo" id="campo">
-                            <option value="">Escolha o campo de consulta</option>
+                        <select class="form-control col-md-3" required name="campo1" id="campo1">
+                            <option value="">Escolha o campo de pesquisa</option>
                             <option value="horario">Horário</option>
                             <option value="remedio">Remédio</option>
                             <option value="dosagem">Dosagem</option>
                             <option value="valor">Valor</option>
                         </select>
-                        <input type="text" class="form-control" required id="consulta" name="consulta" placeholder="Consulta"
+                        <input type="text" class="form-control col-md-2" required id="consulta" name="consulta" placeholder="Pesquisa"
                             value="">
+                        <select class="form-control col-md-4" name="campo2" id="campo2">
+                            <option value="">Campo de consulta *(opcional)</option>
+                            <option value="horario">Horário</option>
+                            <option value="remedio">Remédio</option>
+                            <option value="dosagem">Dosagem</option>
+                            <option value="valor">Valor</option>
+                        </select>
+                        <select class="form-control col-md-4" name="campo3" id="campo3">
+                            <option value="">Campo de consulta *(opcional)</option>
+                            <option value="horario">Horário</option>
+                            <option value="remedio">Remédio</option>
+                            <option value="dosagem">Dosagem</option>
+                            <option value="valor">Valor</option>
+                        </select>
+                        <select class="form-control col-md-4" name="campo4" id="campo4">
+                            <option value="">Campo de consulta *(opcional)</option>
+                            <option value="horario">Horário</option>
+                            <option value="remedio">Remédio</option>
+                            <option value="dosagem">Dosagem</option>
+                            <option value="valor">Valor</option>
+                        </select>
                     </div>
                 </div>
             </div>

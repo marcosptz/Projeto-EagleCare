@@ -82,23 +82,27 @@ class HorariosController extends Controller
         } else {
             return redirect()->back()->withInput()->withErrors(['Não encontrado!']);
         }
-        // dd($resultado);
     }
 
     public function consHorario(Request $request)
     {
         $query = $request->consulta;
-        $campo = $request->campo;
-        $resultado = Horarios::where($campo, '=', $query)->first();
+        $campo1 = $request->campo1;
+        $campo2 = $request->campo2;
+        $campo3 = $request->campo3;
+        $campo4 = $request->campo4;
+        $resultado = Horarios::where($campo1, '=', $query)->first();
         if ($resultado) {
             return view('horarios.resultado', [
                 'resultado' => $resultado,
-                'campo' => $campo
+                'campo1' => $campo1,
+                'campo2' => $campo2,
+                'campo3' => $campo3,
+                'campo4' => $campo4,
             ]);
         } else {
             return redirect()->back()->withInput()->withErrors(['Não encontrado!']);
         }
-        // dd($resultado);
     }
 
     /**

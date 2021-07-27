@@ -28,7 +28,9 @@
                             <th>Nome</th>
                             <th>Email</th>
                             <th>Nível</th>
+                            @if(Auth::user()->nivel == 1)
                             <th>Ações</th>
+                            @endif
                         </tr>
                     </thead>
                     <tbody align="center">
@@ -38,12 +40,14 @@
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>
                             <td>{{$user->nivel}}</td>
+                            @if(Auth::user()->nivel == 1)
                             <td>
                                 <a href="{{ route('user.edit', $user->id) }}" type="button"
                                     class="btn btn-outline-secondary btn-sm">Editar</a>
                                 <a href="{{ route('user.destroy', $user->id) }}" type="button"
                                     class="btn btn-outline-secondary btn-sm">Excluir</a>
                             </td>
+                            @endif
                         </tr>
                         @endforeach
                     </tbody>

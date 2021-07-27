@@ -25,22 +25,21 @@
                     <thead align="center">
                         <tr>
                             <th>Nome</th>
-                            <th>{{ $campo }}</th>
-                            {{-- <th>Horário</th>
-                            <th>Pessoa</th>
-                            <th>Remédio</th>
-                            <th>Valor R$</th> --}}
-
+                            <th>Período</th>
+                            <th>{{ $campo1 }}</th>
+                            <th>{{ $campo2 }}</th>
+                            <th>{{ $campo3 }}</th>
+                            <th>{{ $campo4 }}</th>
                         </tr>
                     </thead>
                     <tbody align="center">
                         <tr>
                             <td>{{ $resultado->pessoa->nome }}</td>
-                            <td>{{ $resultado->$campo }}</td>
-                            {{-- <td>{{$horario->horario}}</td>
-                            <td>{{$horario->pessoa->nome}}</td>
-                            <td>{{$horario->remedio}}</td>
-                            <td>{{$horario->valor}}</td> --}}
+                            <td>{{ $resultado->pessoa->periodo }}</td>
+                            <td>{{ $resultado->$campo1 }}</td>
+                            <td>{{ $resultado->$campo2 }}</td>
+                            <td>{{ $resultado->$campo3 }}</td>
+                            <td>{{ $resultado->$campo4 }}</td>
                         </tr>
                     </tbody>
                 </table>
